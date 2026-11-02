@@ -9,7 +9,8 @@
 ## Запуск
 
 ```powershell
-py -3 -m venv .venv                                   # обычный Python с python.org, не MSYS2
+py -3 -m venv .venv      # обычный Python с python.org, не MSYS2
+python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
 .venv\Scripts\python.exe seed.py                       # демо-данные (пересоздаёт kanban.db)
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload --timeout-graceful-shutdown 2
