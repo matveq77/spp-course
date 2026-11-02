@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanban Lite</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%234f46e5'/><rect x='6' y='7' width='5' height='18' rx='1.5' fill='white'/><rect x='13.5' y='7' width='5' height='12' rx='1.5' fill='white'/><rect x='21' y='7' width='5' height='8' rx='1.5' fill='white'/></svg>">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script>
+    // применяем тему до отрисовки, чтобы не было «вспышки» светлой темы
+    try {
+      const s = JSON.parse(localStorage.getItem('kb_settings') || '{}');
+      const t = s.theme === 'dark' || (s.theme !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+      if (s.accent) document.documentElement.style.setProperty('--accent', s.accent);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="/static/vendor/vue.global.prod.js"></script>
+  <script src="/static/vendor/Sortable.min.js"></script>
+  <script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
